@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>leaflet</title>
+    <style type="text/css">
+        #myMap {
+            height: 500px;
+            width: 1200px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+        crossorigin="" />
+</head>
+
+<body>
+    <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js" integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+        crossorigin=""></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var mymap = L.map('myMap', {
+                center: [39.9788, 116.30226],
+                zoom: 14
+            });
+            // Mapbox地图
+            L.tileLayer(
+                'https://api.mapbox.com/styles/v1/kengqiangxia/cj5jbah540hlj2rpgh3xptiek/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia2VuZ3FpYW5neGlhIiwiYSI6ImNqNWpiMWZ5ZTIxYzgyd3BrYTN2NDN5aXEifQ.bqY03lR_2LZ0fttPOJ4jyw', {
+                    attribution: '铿锵侠leaflet教程, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                }).addTo(mymap);
+            // OpenStreetMap地图
+            // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            //     attribution: '铿锵侠leaflet教程©OpenStreetMap'
+            // }).addTo(mymap);
+        }
+    </script>
+    <div id="myMap"></div>
+</body>
+
+</html>
