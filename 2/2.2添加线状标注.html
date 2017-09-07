@@ -20,18 +20,30 @@
     <script type="text/javascript">
         window.onload = function () {
             var mymap = L.map('myMap', {
-                center: [39.9788, 116.30226],
+                center: [39.92, 116.40],
                 zoom: 14
             });
-            // Mapbox地图
             L.tileLayer(
-                'https://api.mapbox.com/styles/v1/kengqiangxia/cj5jbah540hlj2rpgh3xptiek/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia2VuZ3FpYW5neGlhIiwiYSI6ImNqNWpiMWZ5ZTIxYzgyd3BrYTN2NDN5aXEifQ.bqY03lR_2LZ0fttPOJ4jyw', {
-                    attribution: '铿锵侠leaflet教程, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                'http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+                    attribution: '&copy; 高德地图',
+                    maxZoom: 18,
+                    minZoom: 9,
+                    subdomains: "1234"
                 }).addTo(mymap);
-            // OpenStreetMap地图
-            // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            //     attribution: '铿锵侠leaflet教程©OpenStreetMap'
-            // }).addTo(mymap);
+            // 圆
+            var circle = L.circle([39.925, 116.434], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.4,
+                radius: 500
+            }).addTo(mymap);
+            // 面
+            var polygon = L.polygon([
+                [39.925, 116.389],
+                [39.925, 116.342],
+                [39.910, 116.342],
+                [39.910, 116.389]
+            ]).addTo(mymap);
         }
     </script>
     <div id="myMap"></div>
